@@ -97,7 +97,7 @@ p{
 }
 
 #television{
-	background-image:url(/images/instavision-tv.png);;
+	background: url(../images/instavision-tv.png) scroll no-repeat;
 	width:586px;
 	height:824px;
 	margin: 5px 0 0 375px;
@@ -105,10 +105,9 @@ p{
 		
 }
 
-#television iframe{
-	margin-left: 182px;
-    margin-top: 103px;
-    width:225px; 
-    height:280px;
+#television #tweets a img{
+	margin-left: 188px;
+    margin-top: 108px;
+    width:200px; 
+    height:200px;
 }
-
