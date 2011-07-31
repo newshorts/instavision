@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link href="http://www.instavision.tv/css/style.css" rel="stylesheet" type="text/css">
+<title>Instavision TV</title>
+</head>
+
+<body>
+    
+    
+    
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.url.js"></script>
+	<script type="text/javascript">  
+	    
+	    // access token for instavisionTV
+		// access_token = 3036112.c90c34d.411d18988857490c9032a2bac30e6943
+		
+		// access token for instavision
+		// access_token = 3060511.0b03a1e.fff65e339b694cf0844306131ab82b97
+		
+		
+		
+		
+		$(document).ready(function () {
+		
+			var host = jQuery.url.attr("host");
+			var path = jQuery.url.attr("path");
+			var anchor = jQuery.url.attr("anchor");
+			
+			alert(" Anchor: " + anchor);
+			console.log(" Anchor: " + anchor);
+		});
+
+
+	</script>
+</body>
+</html>

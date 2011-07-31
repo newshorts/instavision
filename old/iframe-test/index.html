@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link href="http://www.instavision.tv/css/style.css" rel="stylesheet" type="text/css">
+<title>Instavision TV</title>
+</head>
+
+<body>
+    
+    
+    
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">  
+	    
+		
+		function callIframe(url, callback) {
+		    $(document.body).append('<IFRAME id="myId" width="100%" height="300"><p>Your browser does not support iframes.</p></iframe>');
+		    $('iframe#myId').attr('src', url);
+		
+		    $('iframe#myId').load(function() 
+		    {
+		        callback(this);
+		    });
+		}
+		
+		$(document).ready(function () {
+		// https%3A%2F%2Finstagram.com%2Foauth%2Fauthorize%2F%3Fclient_id%3Dc90c34d5d7af4567accb5d7f950547f7%26redirect_uri%3Dhttp%3A%2F%2Finstavision.tv%2Fiframe-test%2Fcallback.html%26response_type%3Dtoken
+		
+		// https://instagram.com/oauth/authorize/?client_id=c90c34d5d7af4567accb5d7f950547f7&redirect_uri=http://instavision.tv/iframe-test/callback.html&response_type=token
+			setTimeout("callIframe('https://instagram.com/oauth/authorize/?client_id=c90c34d5d7af4567accb5d7f950547f7&redirect_uri=http://instavision.tv/iframe-test/callback.html&response_type=token', 'http://instavision.tv/iframe-test')",1000);
+		});
+
+
+	</script>
+</body>
+</html>

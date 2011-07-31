@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link href="css/styleDarkmini.css" rel="stylesheet" type="text/css">
+<title>Instavision TV</title>
+</head>
+
+<body style="">
+    <div id="wrap">
+    
+    	<div id="tweets"></div>
+    	<!--<div id="music">
+    		<object width="250" height="40"> <param name="movie" value="http://listen.grooveshark.com/songWidget.swf" /> <param name="wmode" value="window" /> <param name="allowScriptAccess" value="always" /> <param name="flashvars" value="hostname=cowbell.grooveshark.com&widgetID=25049721&style=metal&p=0" /> <embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="40" flashvars="hostname=cowbell.grooveshark.com&widgetID=25049721&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>
+    	</div>-->
+    </div>
+    
+    
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">  
+	    var tweet_list = $("#tweets"); 
+	    var tweet_caption = $("#caption"); 
+	
+	    function load_tweets() {  
+	        $.getJSON("/stream", function(tweets) {  
+	            /*$.each(tweets.data, function() {  
+	                $("<li>").html(this.text).prependTo(tweet_list);  
+	            });*/
+	            var imageurl = tweets.data[0].images.standard_resolution.url;
+	            var imageUser = tweets.data[0].user.username;
+	            var imageCaption = '';
+	            if (tweets.data[0].caption != null){
+	            var imageCaption = tweets.data[0].caption.text;
+	            }
+	            
+	            console.log(imageUser);
+	            console.log(imageCaption);
+	            imageurl = "<img id='tweet' src='"+imageurl+"' /><br/>";
+	            imageCaption = "<div id='caption'><img id='captionImage' src='/images/ColorBars.png' height='18px' width='29px'/><h1>"+imageUser+"</h1><h3>"+imageCaption+"</h3></div>";
+	            console.log(imageurl);
+	            $(tweet_list).html(imageurl + imageCaption);
+	            load_tweets();  
+	        });  
+	    }  
+	
+	    setTimeout(load_tweets, 5000); 
+	    
+	    $(document).ready(function() {
+	    	load_tweets();
+	    }); 
+	</script>
+</body>
+</html>

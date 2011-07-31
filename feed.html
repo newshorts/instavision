@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link href="css/styleDark.css" rel="stylesheet" type="text/css">
+<title>Instavision TV</title>
+</head>
+
+<body style="">
+    <div id="wrap">
+    
+    	<div id="tweets" class="instagram"></div>
+    	<!--<div id="music">
+    		<object width="250" height="40"> <param name="movie" value="http://listen.grooveshark.com/songWidget.swf" /> <param name="wmode" value="window" /> <param name="allowScriptAccess" value="always" /> <param name="flashvars" value="hostname=cowbell.grooveshark.com&widgetID=25049721&style=metal&p=0" /> <embed src="http://listen.grooveshark.com/songWidget.swf" type="application/x-shockwave-flash" width="250" height="40" flashvars="hostname=cowbell.grooveshark.com&widgetID=25049721&style=metal&p=0" allowScriptAccess="always" wmode="window" /></object>
+    	</div>-->
+    </div>
+    
+    
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript">  
+	    var tweet_list = $("#tweets"); 
+	    var tweet_caption = $("#caption"); 
+	// a mistake
+	    function load_tweets() {  
+	          $.ajax({
+				  url: "http://api.instagram.com/v1/users/self/feed?access_token=3060511.0b03a1e.fff65e339b694cf0844306131ab82b97",
+				  type: "GET",
+				  dataType: "jsonp",
+				  success: function(data){
+				    for (var i = 0; i < 6; i++) {
+				        $(".instagram").append("<div class='instagram-placeholder'><a target='_blank' href='" + data.data[i].link +"'><img class='instagram-image' src='" + data.data[i].images.thumbnail.url +"' /><a></div>");   
+	                }
+				  }
+				});
+	    }  
+	
+	    setTimeout(load_tweets, 5000); 
+	    
+	    $(document).ready(function() {
+	    	load_tweets();
+	    }); 
+	</script>
+	
+	
+	
+</body>
+</html>
