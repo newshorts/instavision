@@ -106,8 +106,14 @@ p{
 }
 
 #television #tweets a img{
-	margin-left: 188px;
+    margin-left: 188px;
     margin-top: 108px;
     width:200px; 
     height:200px;
+}
+
+#television #tweets a span{
+    color: white;
+    margin-left: 188px;
+    padding-top: 10px;
 }

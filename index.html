@@ -43,38 +43,44 @@
         <div id="television">
             <div id="tweets" class="instagram"></div>
 <!--        	<iframe src="http://instavision.tv:8080/feedmini.html" scrolling="no" frameborder="0" style="border:none; width:225px; height:275px"></iframe>-->
-            <script type="text/javascript">  
-                var tweet_list = $("#tweets"); 
-                var tweet_caption = $("#caption"); 
-            // a mistake
-                function load_tweets() {  
-                      $.ajax({
-                                      url: "http://api.instagram.com/v1/users/self/feed?access_token=3060511.0b03a1e.fff65e339b694cf0844306131ab82b97",
-                                      type: "GET",
-                                      dataType: "jsonp",
-                                      success: function(result){
-                                        console.dir(result);
-//                                        for (var i = 0; i < 6; i++) {
-                                            if(result.data[0].link != undefined) {
-                                                
-                                                $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><a></div>");   
-                                                
-                                            }
-                                            
-//                                        }
-                                      }
-                            });
-                }  
-
-                setTimeout(load_tweets, 5000); 
-
-                $(document).ready(function() {
-                    load_tweets();
-                }); 
-            </script>
+            
         </div>
     	
     </div>
+    <script type="text/javascript">  
+        var tweet_list = $("#tweets"); 
+        var tweet_caption = $("#caption"); 
+    // a mistake
+        function load_tweets() {  
+              $.ajax({
+                              url: "http://api.instagram.com/v1/users/self/feed?access_token=3060511.0b03a1e.fff65e339b694cf0844306131ab82b97",
+                              type: "GET",
+                              dataType: "jsonp",
+                              success: function(result){
+                                console.dir(result);
+//                                        for (var i = 0; i < 6; i++) {
+                                    if(result.data[0].link != undefined) {
+
+                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><br /><span>"+result.data[0].user.username+"</span></a></div>");   
+
+                                    }
+
+//                                        }
+                              }
+                    }); // end ajax
+        }  // end load_tweets
+
+
+
+        $(document).ready(function() {
+//                    load_tweets();
+                
+            setInterval(load_tweets, 5000);
+                
+            
+            
+        }); 
+    </script>
 </body>
 
 </html>
