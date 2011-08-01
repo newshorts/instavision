@@ -60,8 +60,14 @@
                                 console.dir(result);
 //                                        for (var i = 0; i < 6; i++) {
                                     if(result.data[0].link != undefined) {
+                                        
+                                        var comment = "";
+                                    	
+                                    	if(result.data[0].comments.data[0].from.username == result.data[0].user.username) {
+                                    		comment = result.data[0].comments.data[0].text;
+                                    	}
 
-                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><br /><span>"+result.data[0].user.username+"</span></a></div>");   
+                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><br /><span>"+result.data[0].user.username+"</span></a><p>"+comment+"</p></div>");   
 
                                     }
 
