@@ -20,28 +20,39 @@
     
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript">  
-	    var tweet_list = $("#tweets"); 
-	    var tweet_caption = $("#caption"); 
-	// a mistake
-	    function load_tweets() {  
-	          $.ajax({
-				  url: "http://api.instagram.com/v1/users/self/feed?access_token=3060511.0b03a1e.fff65e339b694cf0844306131ab82b97",
-				  type: "GET",
-				  dataType: "jsonp",
-				  success: function(data){
-				    for (var i = 0; i < 6; i++) {
-				        $(".instagram").append("<div class='instagram-placeholder'><a target='_blank' href='" + data.data[i].link +"'><img class='instagram-image' src='" + data.data[i].images.thumbnail.url +"' /><a></div>");   
-	                }
-				  }
-				});
-	    }  
-	
-	    setTimeout(load_tweets, 5000); 
-	    
-	    $(document).ready(function() {
-	    	load_tweets();
-	    }); 
-	</script>
+        var tweet_list = $("#tweets"); 
+        var tweet_caption = $("#caption"); 
+    // a mistake
+        function load_tweets() {  
+              $.ajax({
+                              url: "http://api.instagram.com/v1/users/self/feed?access_token=3060511.0b03a1e.fff65e339b694cf0844306131ab82b97",
+                              type: "GET",
+                              dataType: "jsonp",
+                              success: function(result){
+                                console.dir(result);
+//                                        for (var i = 0; i < 6; i++) {
+                                    if(result.data[0].link != undefined) {
+
+                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.standard_resolution.url +"' /><br /><span>"+result.data[0].user.username+"</span></a></div>");   
+
+                                    }
+
+//                                        }
+                              }
+                    }); // end ajax
+        }  // end load_tweets
+
+
+
+        $(document).ready(function() {
+//                    load_tweets();
+                
+            setInterval(load_tweets, 5000);
+                
+            
+            
+        }); 
+    </script>
 	
 	
 	
