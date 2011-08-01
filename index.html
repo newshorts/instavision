@@ -63,8 +63,10 @@
                                         
                                         var comment = "";
                                     	
-                                    	if(result.data[0].comments.data[0].from.username == result.data[0].user.username) {
-                                    		comment = result.data[0].comments.data[0].text;
+                                    	if(result.data[0].comments.count > 0) {
+	                                    	if(result.data[0].comments.data[0].from.username == result.data[0].user.username) {
+	                                    		comment = result.data[0].comments.data[0].text;
+	                                    	}                                    		
                                     	}
 
                                         $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><br /><span>"+result.data[0].user.username+"</span></a><p>"+comment+"</p></div>");   
