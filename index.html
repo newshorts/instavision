@@ -43,7 +43,7 @@
         <div id="television">
             <div id="tweets" class="instagram"></div>
 <!--        	<iframe src="http://instavision.tv:8080/feedmini.html" scrolling="no" frameborder="0" style="border:none; width:225px; height:275px"></iframe>-->
-            
+            <img id="caption" src="/images/ColorBars.png"/>
         </div>
     	
     </div>
@@ -69,7 +69,7 @@
 	                                    	}                                    		
                                     	}
 
-                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.thumbnail.url +"' /><br /><span>"+result.data[0].user.username+"</span></a><p>"+comment+"</p></div>");   
+                                        $(".instagram").replaceWith("<div id=\"tweets\" class='instagram'><a target='_blank' href='" + result.data[0].link +"'><img class='instagram-image' src='" + result.data[0].images.standard_resolution.url +"' /><br /><span>"+result.data[0].user.username+"</span></a><p>"+comment+"</p></div>");   
 
                                     }
 

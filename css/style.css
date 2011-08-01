@@ -96,7 +96,7 @@ p{
 	line-height:1.3em;
 }
 
-#television{
+#television {
 	background: url(../images/instavision-tv.png) scroll no-repeat;
 	width:586px;
 	height:824px;
@@ -105,15 +105,28 @@ p{
 		
 }
 
-#television #tweets a img{
-    margin-left: 188px;
-    margin-top: 108px;
-    width:200px; 
-    height:200px;
+#television #tweets a img {
+    margin-left: 184px;
+    margin-top: 104px;
+    width:220px; 
+    height:220px;
 }
 
-#television #tweets a span{
+#television #tweets a span {
+    top: 330px;
+    font-family: Times;
+	font-style: italic;
     color: white;
-    margin-left: 188px;
-    padding-top: 10px;
+    margin: 0 0 0 206px;
+    text-transform: uppercase;
+    position: absolute;
+    display: block;
+}
+
+img#caption {
+	top: 330px;
+	margin: 0 0 0 186px;
+	width: 16px;
+	position: absolute;
+	padding: none;
 }
